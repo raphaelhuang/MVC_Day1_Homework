@@ -6,6 +6,7 @@ Day1 homework notes:
 4. 上方表單部分如果有時間可以依據需求調整，如果沒時間可以將「MoneyTemplate.html」的部分直接複製過來。
 
 Day2 homework notes:
+
 請將記帳本呈現資料的部分改為真 DB !
 可使用 EF , ADO.NET
 範例資料庫請使用 HomeWorkDB 內的資料
