@@ -1,6 +1,5 @@
-# MVC_Day1_Homework
-
 Day1 homework notes:
+
 1. 請使用「MoneyTemplate.html」作為樣版（就是你家設計提供的版型）
 2. 必須使用 Layout
 3. 下方列表必須有假資料（禁止寫死在HTML）可使用 ViewModel
