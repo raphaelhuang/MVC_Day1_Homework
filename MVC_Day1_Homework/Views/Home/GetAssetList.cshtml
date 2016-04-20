@@ -1,9 +1,10 @@
-﻿@model IEnumerable<MVC_Day1_Homework.ViewModels.AssetViewModel>
-
+﻿
 @{
     ViewBag.Title = "GetAssetList";
-    Layout = null;
+    Layout = "";
 }
+
+<h2>GetAssetList</h2>
 
 <div class="row">
     <div class="col-md-12">
@@ -13,19 +14,21 @@
                 <th>類別</th>
                 <th>日期</th>
                 <th>金額</th>
+                <th>備註</th>
             </tr>
-
-            @foreach (var item in Model.Select((value, index) => new { value, index }))
+           
+            @foreach (var item in Model)
             {
-                var category = (@item.value.Category == true) ? "收入" : "支出";
+                var category = ((@item.Categoryyy == 1) ? "支出" : "收入");
+
                 <tr>
-                    <td>@(item.index + 1)</td>
+                    <td>@item.Id.ToString("N")</td>
                     <td>@category</td>
-                    <td>@(item.value.Date.ToString("yyyy-MM-dd"))</td>
-                    <td>@(item.value.Money.ToString("N0"))</td>
+                    <td>@item.Dateee.ToString("yyyy-MM-dd")</td>
+                    <td>@item.Amounttt.ToString("N0")</td>
+                    <td>@item.Remarkkk</td>
                 </tr>
             }
-            </table>
+        </table>
     </div>
 </div>
-

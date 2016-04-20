@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MVC_Day1_Homework.ViewModels;
+using MVC_Day1_Homework.Models;
 
 namespace MVC_Day1_Homework.Controllers
 {
@@ -14,16 +15,14 @@ namespace MVC_Day1_Homework.Controllers
             return View();
         }
 
+        private AssetsModel db = new AssetsModel();
+
         [ChildActionOnly]
         public ActionResult GetAssetList()
         {
-            List<AssetViewModel> assetList = new List<AssetViewModel>();
+            var accountBook = db.AccountBook.OrderByDescending(x => x.Dateee).Take(10);
 
-            assetList.Add(new AssetViewModel { Category = false, Date = new DateTime(2016, 1, 1), Money = 300, Description = "" });
-            assetList.Add(new AssetViewModel { Category = false, Date = new DateTime(2016, 1, 2), Money = 1600, Description = "" });
-            assetList.Add(new AssetViewModel { Category = false, Date = new DateTime(2016, 1, 3), Money = 800, Description = "" });
-
-            return View(assetList);
+            return View(accountBook);
         }
 
         public ActionResult About()
@@ -38,6 +37,15 @@ namespace MVC_Day1_Homework.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                db.Dispose();
+            }
+            base.Dispose(disposing);
         }
     }
 }
