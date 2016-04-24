@@ -3,18 +3,6 @@
     Layout = "";
 }
 
-@helper ChangeColor(string content, int color)
-{
-    if (color == 1)
-    {
-        <font color="red">@content</font>
-    }
-    else
-    {
-        <font color="blue">@content</font>
-    }
-}
-
 <h2>GetAssetList</h2>
 
 <div class="row">
@@ -34,7 +22,7 @@
 
                 <tr>
                     <td>@item.Id.ToString("N")</td>
-                    <td>@ChangeColor(category, item.Categoryyy)</td>
+                    <td>@ChangeFont.ChangeColor(category, item.Categoryyy)</td>
                     <td>@item.Dateee.ToString("yyyy-MM-dd")</td>
                     <td>@item.Amounttt.ToString("N0")</td>
                     <td>@item.Remarkkk</td>
