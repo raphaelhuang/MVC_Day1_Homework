@@ -10,6 +10,12 @@ namespace MVC_Day1_Homework.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly AddRecordService _addRecordSvc;
+        public HomeController()
+        {
+            _addRecordSvc = new AddRecordService();
+        }
+
         public ActionResult Index()
         {
             return View();
@@ -36,8 +42,8 @@ namespace MVC_Day1_Homework.Controllers
             accountBook.Amounttt = (int)assetViewModel.Money;
             accountBook.Remarkkk = assetViewModel.Description;
 
-            db.AccountBook.Add(accountBook);
-            db.SaveChanges();
+            _addRecordSvc.AddRecord(accountBook);
+            _addRecordSvc.Save();
 
             return View("Index");
         }
