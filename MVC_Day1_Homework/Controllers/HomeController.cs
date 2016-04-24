@@ -25,6 +25,23 @@ namespace MVC_Day1_Homework.Controllers
             return View(accountBook);
         }
 
+        
+        public ActionResult Addrecord(AssetViewModel assetViewModel)
+        {
+            var accountBook = new AccountBook();
+
+            accountBook.Id = Guid.NewGuid();
+            accountBook.Categoryyy = assetViewModel.Category;
+            accountBook.Dateee = assetViewModel.Date;
+            accountBook.Amounttt = (int)assetViewModel.Money;
+            accountBook.Remarkkk = assetViewModel.Description;
+
+            db.AccountBook.Add(accountBook);
+            db.SaveChanges();
+
+            return View("Index");
+        }
+        
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
