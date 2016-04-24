@@ -1,7 +1,18 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "GetAssetList";
     Layout = "";
+}
+
+@helper ChangeColor(string content, int color)
+{
+    if (color == 1)
+    {
+        <font color="red">@content</font>
+    }
+    else
+    {
+        <font color="blue">@content</font>
+    }
 }
 
 <h2>GetAssetList</h2>
@@ -16,14 +27,14 @@
                 <th>金額</th>
                 <th>備註</th>
             </tr>
-           
+
             @foreach (var item in Model)
             {
                 var category = ((@item.Categoryyy == 1) ? "支出" : "收入");
 
                 <tr>
                     <td>@item.Id.ToString("N")</td>
-                    <td>@category</td>
+                    <td>@ChangeColor(category, item.Categoryyy)</td>
                     <td>@item.Dateee.ToString("yyyy-MM-dd")</td>
                     <td>@item.Amounttt.ToString("N0")</td>
                     <td>@item.Remarkkk</td>
