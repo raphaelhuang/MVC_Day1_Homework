@@ -7,7 +7,7 @@
 
 <div class="well">
 
-    @using (Html.BeginForm("AddRecord", "Home", FormMethod.Post))
+    @using (Ajax.BeginForm("AddRecord", "Home", new AjaxOptions { UpdateTargetId = "AssetList", OnSuccess = "success" }))
     {
         <div class="form-horizontal">
 
