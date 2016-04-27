@@ -5,9 +5,10 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+
 <div class="well">
 
-    @using (Ajax.BeginForm("AddRecord", "Home", new AjaxOptions { UpdateTargetId = "AssetList", OnSuccess = "success" }))
+    @using (Ajax.BeginForm("AddRecord", "Home", new AjaxOptions { UpdateTargetId = "AssetList"}))
     {
         <div class="form-horizontal">
 
@@ -57,7 +58,7 @@
 
 </div>
 
-<div>
+<div id="AssetList">
     @Html.Action("GetAssetList")
 </div>
 
