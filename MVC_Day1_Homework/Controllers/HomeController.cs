@@ -31,20 +31,24 @@ namespace MVC_Day1_Homework.Controllers
             return View(accountBook);
         }
 
-        
+        [HttpPost]
         public ActionResult Addrecord(AssetViewModel assetViewModel)
         {
             var accountBook = new AccountBook();
 
-            accountBook.Id = Guid.NewGuid();
-            accountBook.Categoryyy = assetViewModel.Category;
-            accountBook.Dateee = assetViewModel.Date;
-            accountBook.Amounttt = (int)assetViewModel.Money;
-            accountBook.Remarkkk = assetViewModel.Description;
+            if (ModelState.IsValid)
+            {
+                accountBook.Id = Guid.NewGuid();
+                accountBook.Categoryyy = assetViewModel.Category;
+                accountBook.Dateee = assetViewModel.Date;
+                accountBook.Amounttt = (int)assetViewModel.Money;
+                accountBook.Remarkkk = assetViewModel.Description;
 
-            _addRecordSvc.AddRecord(accountBook);
-            _addRecordSvc.Save();
+                _addRecordSvc.AddRecord(accountBook);
+                _addRecordSvc.Save();
 
+                return View("Index");
+            }
             return View("Index");
         }
         
