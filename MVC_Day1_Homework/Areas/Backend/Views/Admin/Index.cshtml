@@ -5,3 +5,40 @@
 
 <h2>Index</h2>
 
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-bordered table-hover">
+            <tr>
+                <th></th>
+                <th>#</th>
+                <th>類別</th>
+                <th>日期</th>
+                <th>金額</th>
+                <th>備註</th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                var category = ((@item.Categoryyy == 1) ? "支出" : "收入");
+
+                <tr>
+
+                    <td>
+
+                        <input type="button" id=@item.Id value="Edit" onclick="location.href='@Url.Action("EditRecord", "Admin", new { id = item.Id })'" />
+
+                        @using (Html.BeginForm("DeleteRecord", "Admin", new { record = item.Id }, FormMethod.Post))
+                        {
+                           <input type="submit" value="Delete" />
+                        }
+                    </td>
+                    <td>@item.Id.ToString("N")</td>
+                    <td>@ChangeFont.ChangeColor(category, item.Categoryyy)</td>
+                    <td>@item.Dateee.ToString("yyyy-MM-dd")</td>
+                    <td>@item.Amounttt.ToString("N0")</td>
+                    <td>@item.Remarkkk</td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>

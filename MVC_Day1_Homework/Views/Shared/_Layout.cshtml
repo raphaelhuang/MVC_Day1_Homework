@@ -23,9 +23,12 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("首頁", "Index", "Home")</li>
-                    <li>@Html.ActionLink("關於", "About", "Home")</li>
-                    <li>@Html.ActionLink("連絡方式", "Contact", "Home")</li>
+
+                    @*為了方便連到管理介面才加上這個連結，實務上並不會將管理介面的連結寫在這裡*@
+                    <li>@Html.ActionLink("管理介面", "About", "Home", new { area=""}, null)</li>
+                    <li>@Html.ActionLink("連絡方式", "Contact", "Home", new { area = "" }, new { })</li>
                 </ul>
+                @Html.Partial("_LoginPartial")
             </div>
         </div>
     </div>

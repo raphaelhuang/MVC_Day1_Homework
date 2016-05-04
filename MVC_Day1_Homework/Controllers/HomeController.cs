@@ -51,12 +51,19 @@ namespace MVC_Day1_Homework.Controllers
             }
             return View("Index");
         }
-        
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
 
-            return View();
+            //if (HttpContext.User.Identity.Name == "user@user.user")
+            if(User.IsInRole("Admin"))
+            {
+                return RedirectToActionPermanent("Index", "Admin", new { Area = "Backend" });
+            }
+
+            //redirect to Homepage if not login
+            return View("~/Views/Home/Index.cshtml");
         }
 
         public ActionResult Contact()
