@@ -22,5 +22,14 @@ Day3 homework notes: 初階版
  - 類型的「支出」字樣顯現為紅色
  - 類型的「收入」字樣顯現為藍色
 
-Day4 homework notes: 進階版
+Day3 homework notes: 進階版
 將記帳本的寫入功能改為AJAX
+
+Day4 homework notes: 初階版
+1. 增加管理專用的Area
+2. 管理員可以編輯所有的歷史資料
+3. 非管理員進入會「跳回首頁」
+
+
+Day4 homework notes: 進階版
+1. 登入才可以寫入資料
