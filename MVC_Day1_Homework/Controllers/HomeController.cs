@@ -32,6 +32,7 @@ namespace MVC_Day1_Homework.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Admin, User")]
         public ActionResult Addrecord(AssetViewModel assetViewModel)
         {
             var accountBook = new AccountBook();
