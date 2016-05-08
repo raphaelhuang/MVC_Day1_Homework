@@ -2,6 +2,9 @@
     ViewBag.Title = "GetAssetList";
     Layout = "";
 }
+@using PagedList.Mvc;
+@using PagedList;
+
 
 <h2>GetAssetList</h2>
 
@@ -28,6 +31,9 @@
                     <td>@item.Remarkkk</td>
                 </tr>
             }
+
+            <!-- output a paging control that lets the user navigation to the previous page, next page, etc -->
+            @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))
         </table>
     </div>
 </div>

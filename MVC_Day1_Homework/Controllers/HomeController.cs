@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using MVC_Day1_Homework.ViewModels;
 using MVC_Day1_Homework.Models;
+using PagedList;
 
 namespace MVC_Day1_Homework.Controllers
 {
@@ -24,11 +25,14 @@ namespace MVC_Day1_Homework.Controllers
         private AssetsModel db = new AssetsModel();
 
         [ChildActionOnly]
-        public ActionResult GetAssetList()
+        public ActionResult GetAssetList(int? page)
         {
-            var accountBook = db.AccountBook.OrderByDescending(x => x.Dateee).Take(10);
+            var accountBook = db.AccountBook.OrderByDescending(x => x.Dateee);
 
-            return View(accountBook);
+            var pageIndex = page.HasValue ? page.Value < 1 ? 1 : page.Value : 1;
+            var source = accountBook.ToPagedList(pageIndex, 20);
+
+            return View(source);
         }
 
         [HttpPost]
