@@ -15,7 +15,7 @@ namespace MVC_Day1_Homework
 
             routes.MapRoute(
                 name: "SkillTree",
-                url: "SkillTree",
+                url: "Home/Index",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
 
