@@ -13,7 +13,6 @@ namespace MVC_Day1_Homework.ViewModels
         public int Category { get; set; }
        
         [Required]
-        [RegularExpression(@"\d+$", ErrorMessage = "請輸入正整數")]
         [Range(0, int.MaxValue, ErrorMessage = "請輸入正整數")]
         public decimal Money { get; set; }
 

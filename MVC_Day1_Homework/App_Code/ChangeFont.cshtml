@@ -1,11 +1,11 @@
 ﻿@helper ChangeColor(string content, int color)
 {
-if (color == 1)
-{
-        <font color="red">@content</font>
-}
-else
-{
-        <font color="blue">@content</font>
-}
+    if (color == 1)
+    {
+        <span style="color:red">@content</span>
+    }
+    else
+    {
+        <span style="color:blue">@content</span>
+    }
 }

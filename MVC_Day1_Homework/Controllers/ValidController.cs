@@ -11,7 +11,7 @@ namespace MVC_Day1_Homework.Controllers
         // GET: Valid
         public ActionResult Index(DateTime date)
         {
-            bool isValidate = (DateTime.Compare(date, DateTime.Now)) < 0;
+            bool isValidate = date >= DateTime.Today;
 
             return Json(isValidate, JsonRequestBehavior.AllowGet);
 
